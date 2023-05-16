@@ -47,6 +47,7 @@ CI Pipeline for a Java Maven application to build and push to the repository
          2. Define variables for the username and password:
                 - Select: "Build Environment" → "Use secret text(s) or file(s)" → "Add" → "Username" and "Password" (separate)
          3. Build configuration in shell execution:
+         
                 ```
                 docker build -t uniyalrachna/demo-app:1.0 .
                 echo $PASSWORD | docker login -u $USERNAME --password-stdin
@@ -54,7 +55,7 @@ CI Pipeline for a Java Maven application to build and push to the repository
                 ```
       - **Nexus Repository**
         
-            1. Configure the host for Nexus by creating the file `/etc/docker/daemon.json` and adding insecure registries to it
+         1. Configure the host for Nexus by creating the file `/etc/docker/daemon.json` and adding insecure registries to it
             
                 ```
                 {
@@ -62,16 +63,18 @@ CI Pipeline for a Java Maven application to build and push to the repository
                 }
                 ```
                 
-            2. Enter as root and modify Docker.sock permission:
+         2. Enter as root and modify Docker.sock permission:
             
                 - `docker exec -u 0 -it 3a1a5e1f119c bash`
                 
                 - `chmod 666 /var/run/docker.sock`
                 
-            3. Create credentials for Nexus
+         3. Create credentials for Nexus
            
-            4. Build configuration in shell execution:
+         4. Build configuration in shell execution:
+         
                 ```
                 docker build -t 64.227.152.141:8083
+                ```
                 
 Java- Maven app : https://gitlab.com/rachana6/java-maven-app.git
