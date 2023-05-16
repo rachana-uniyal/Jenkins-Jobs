@@ -31,12 +31,18 @@ CI Pipeline for a Java Maven application to build and push to the repository
     4. Start the container again:
         - `docker start 3ad844beaavc`
 3. Create Jenkins credentials for a git repository
-4. Create different Jenkins job types (Freestyle, Pipeline, Multibranch pipeline) for the Java Maven project with Jenkinsfile to:
+4. Create different Jenkins job types (Freestyle, Pipeline, Multibranch pipeline) for the Java Maven project with Jenkinsfile to
+
     a. Connect to the application’s git repository
+    
     b. Build Jar: In the Maven build step, add the command `package`
+    
     c. Build Docker Image: In the shell script, add `docker build -t java-maven-app:1.0 .`
+    
     d. Push to private DockerHub repository:
+    
         - **DockerHub Repository**
+        
             1. Add DockerHub credentials in Jenkins
             2. Define variables for the username and password:
                 - Select: "Build Environment" → "Use secret text(s) or file(s)" → "Add" → "Username" and "Password" (separate)
@@ -47,16 +53,23 @@ CI Pipeline for a Java Maven application to build and push to the repository
                 docker push uniyalrachna/demo-app:1.0
                 ```
         - **Nexus Repository**
-            1. Configure the host for Nexus by creating the file `/etc/docker/daemon.json` and adding insecure registries to it:
+        
+            1. Configure the host for Nexus by creating the file `/etc/docker/daemon.json` and adding insecure registries to it
+            
                 ```
                 {
                     "insecure-registries" : ["64.227.152.141:8083"]
                 }
                 ```
+                
             2. Enter as root and modify Docker.sock permission:
+            
                 - `docker exec -u 0 -it 3a1a5e1f119c bash`
+                
                 - `chmod 666 /var/run/docker.sock`
+                
             3. Create credentials for Nexus
+           
             4. Build configuration in shell execution:
                 ```
                 docker build -t 64.227.152.141:8083
