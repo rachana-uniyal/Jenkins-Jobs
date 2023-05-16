@@ -43,10 +43,10 @@ CI Pipeline for a Java Maven application to build and push to the repository
     
       - **DockerHub Repository**
         
-            1. Add DockerHub credentials in Jenkins
-            2. Define variables for the username and password:
+         1. Add DockerHub credentials in Jenkins
+         2. Define variables for the username and password:
                 - Select: "Build Environment" → "Use secret text(s) or file(s)" → "Add" → "Username" and "Password" (separate)
-            3. Build configuration in shell execution:
+         3. Build configuration in shell execution:
                 ```
                 docker build -t uniyalrachna/demo-app:1.0 .
                 echo $PASSWORD | docker login -u $USERNAME --password-stdin
