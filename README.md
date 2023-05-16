@@ -41,7 +41,7 @@ CI Pipeline for a Java Maven application to build and push to the repository
     
     d. Push to private DockerHub repository:
     
-        - **DockerHub Repository**
+      - **DockerHub Repository**
         
             1. Add DockerHub credentials in Jenkins
             2. Define variables for the username and password:
@@ -52,7 +52,7 @@ CI Pipeline for a Java Maven application to build and push to the repository
                 echo $PASSWORD | docker login -u $USERNAME --password-stdin
                 docker push uniyalrachna/demo-app:1.0
                 ```
-        - **Nexus Repository**
+      - **Nexus Repository**
         
             1. Configure the host for Nexus by creating the file `/etc/docker/daemon.json` and adding insecure registries to it
             
